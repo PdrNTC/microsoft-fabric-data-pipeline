@@ -1,0 +1,86 @@
+table vendas_tratadas
+	lineageTag: a321bcb5-4644-4610-a541-0b666f393a97
+	sourceLineageTag: [dbo].[vendas_tratadas]
+
+	column id_venda
+		dataType: string
+		lineageTag: c77abc3d-0785-41e3-be14-013ec830e9ff
+		sourceLineageTag: id_venda
+		summarizeBy: none
+		sourceColumn: id_venda
+
+		annotation SummarizationSetBy = Automatic
+
+	column nome_cliente
+		dataType: string
+		lineageTag: c7ff1f6f-c449-46c6-882e-42716bb2e1d8
+		sourceLineageTag: nome_cliente
+		summarizeBy: none
+		sourceColumn: nome_cliente
+
+		annotation SummarizationSetBy = Automatic
+
+	column produto
+		dataType: string
+		lineageTag: c1b28b40-9313-4d13-92a2-c1997f32e318
+		sourceLineageTag: produto
+		summarizeBy: none
+		sourceColumn: produto
+
+		annotation SummarizationSetBy = Automatic
+
+	column quantidade
+		dataType: int64
+		formatString: 0
+		lineageTag: 7dfdfb97-227b-4b3a-bf29-b07e9140023f
+		sourceLineageTag: quantidade
+		summarizeBy: sum
+		sourceColumn: quantidade
+
+		annotation SummarizationSetBy = Automatic
+
+	column preco_unitario
+		dataType: string
+		lineageTag: 8f71aac4-9433-4d80-81b2-9727230d6272
+		sourceLineageTag: preco_unitario
+		summarizeBy: none
+		sourceColumn: preco_unitario
+
+		annotation SummarizationSetBy = Automatic
+
+	column cidade
+		dataType: string
+		lineageTag: 3b34070a-30d6-46f0-8136-78d415aeaa5b
+		sourceLineageTag: cidade
+		summarizeBy: none
+		sourceColumn: cidade
+
+		annotation SummarizationSetBy = Automatic
+
+	column data
+		dataType: string
+		lineageTag: eae8fd88-22e4-44b3-af19-eb60d4c4c4f7
+		sourceLineageTag: data
+		summarizeBy: none
+		sourceColumn: data
+
+		annotation SummarizationSetBy = Automatic
+
+	column valor_total
+		dataType: double
+		lineageTag: 8e114cb2-ef6e-47c4-abeb-b1190f90e4dc
+		sourceLineageTag: valor_total
+		summarizeBy: sum
+		sourceColumn: valor_total
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition vendas_tratadas = entity
+		mode: directLake
+		source
+			entityName: vendas_tratadas
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_pipelinefabric'
+
